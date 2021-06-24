@@ -244,10 +244,16 @@ GDALError Raster::open(int width, int height, int numBands,
     }
 
     std::string item;
-    const char *itemp = driver->GetMetadataItem(GDAL_DCAP_CREATECOPY);
+    const char *itemp = driver->GetMetadataItem(GDAL_DCAP_CREATE);
     if (itemp)
         item = itemp;
-    if (item != "YES")
+  
+    std::string item2;
+      const char *itemp2 = driver->GetMetadataItem(GDAL_DCAP_CREATECOPY);
+    if (itemp2)
+        item2 = itemp2;
+  
+    if (item != "YES" || item2 != "YES")
     {
         m_errorMsg = "Requested driver '" + m_drivername + "' does not "
             "support file creation.";
