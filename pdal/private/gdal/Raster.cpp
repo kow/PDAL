@@ -244,7 +244,7 @@ GDALError Raster::open(int width, int height, int numBands,
     }
 
     std::string item;
-    const char *itemp = driver->GetMetadataItem(GDAL_DCAP_CREATE);
+    const char *itemp = driver->GetMetadataItem(GDAL_DCAP_CREATECOPY);
     if (itemp)
         item = itemp;
     if (item != "YES")
