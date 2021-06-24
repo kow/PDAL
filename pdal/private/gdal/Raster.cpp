@@ -253,7 +253,7 @@ GDALError Raster::open(int width, int height, int numBands,
     if (itemp2)
         item2 = itemp2;
   
-    if (item != "YES" || item2 != "YES")
+    if (item != "YES" && item2 != "YES")
     {
         m_errorMsg = "Requested driver '" + m_drivername + "' does not "
             "support file creation.";
